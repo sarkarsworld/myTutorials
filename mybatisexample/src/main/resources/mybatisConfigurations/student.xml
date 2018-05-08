@@ -44,6 +44,38 @@
 	</update>
 
 	<delete id="deleteById" parameterType="int">
-		DELETE from STUDENT WHERE ID = #{id};
+		DELETE from STUDENT WHERE
+		ID = #{id};
 	</delete>
+
+	<select id="callById" resultMap="result" parameterType="Student"
+		statementType="CALLABLE">
+		{call read_recordById(#{id, jdbcType = INTEGER, mode =
+		IN})}
+	</select>
+
+	<select id="getRecByName" parameterType="Student"
+		resultType="Student">
+		SELECT * FROM STUDENT
+
+		<if test="name != null">
+			WHERE name LIKE #{name}
+		</if>
+
+	</select>
+	<select id="getRecByName_Id" parameterType="Student"
+		resultType="Student">
+		SELECT * FROM STUDENT
+
+		<where>
+			<if test="id != null">
+				id = #{id}
+			</if>
+
+			<if test="name != null">
+				AND name LIKE #{name}
+			</if>
+		</where>
+
+	</select>
 </mapper>
