@@ -1,0 +1,30 @@
+DROP TABLE IF EXISTS student;
+CREATE TABLE  student(
+   ID INT(10) NOT NULL AUTO_INCREMENT,  
+   NAME VARCHAR(100) NOT NULL,
+   BRANCH VARCHAR(255) NOT NULL,
+   PERCENTAGE INT(3) NOT NULL,  
+   PHONE INT(10) NOT NULL,
+   EMAIL VARCHAR(255) NOT NULL,
+   PRIMARY KEY ( ID )
+);
+
+SELECT * FROM student;
+
+INSERT INTO student
+VALUES(1, 'Alok', 'IT', 80, 889636888, 'alok@mail.com');
+-- ------------------------
+
+DELIMITER //
+   DROP PROCEDURE IF EXISTS read_recordById //
+   CREATE PROCEDURE read_recordById (IN emp_id INT)
+	
+   BEGIN 
+      SELECT * FROM STUDENT WHERE ID = emp_id; 
+   END// 
+	
+DELIMITER ;
+
+-- --------------------------
+
+
