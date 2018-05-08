@@ -1,0 +1,67 @@
+A: create a central repository:
+1. create repository on github.
+
+B: create a local repository:
+1. create an empty git repository.
+	$ git init <optional_name_for_folder>
+	
+2. link the local repository to central repository.
+	$ git remote add origin "https://github.com/sarkarsworld/myTutorials.git"
+	
+3. fetch all the files from central repo to local repo.
+	$ git pull origin master
+	
+4. start coding at you local workspace.
+
+5. add files to stagging area.
+	$ git add <file_name or .(a period for adding complete folder) or -A>
+	
+6. commit files to local repo.
+	$ git commit -a(optional parameter to commit all) -m "commit message"
+
+
+7. creating a branch.
+	$ git branch <branch_name>
+	
+8. switch to a branch. 
+	$ git checkout <branch_name>
+	
+9. merge branch code to master
+	$ git merge <branch_name>
+	
+
+10. Push change from local repository branch to branch on github.
+	$ git checkout <branch_name>
+	$ git push origin <branch_name>
+	
+	
+git status - get the status of the file in git local (untracked/stagged/etc).
+git clear
+git log
+ls
+cat <file_name>: display contents of the file.
+git pull = git fetch + git merge
+git rebase master
+
+
+
+SSH:
+1. generate public ssh key from git bash.
+$ ssh-keygen
+
+2. locate the key file on local.
+
+3. goto github -> settings -> SSH & GPG keys -> new SSH Key.
+	- give a name to the ssh key.
+	- copy the key from the file and paste it in 'key' section of the window.
+	- click 'add ssh key'.
+	
+4. get back to git-bash and type:
+	$ ssh -T git@github.com
+	
+
+
+
+branch types:-
+1. local branch.
+2. remote tracking branch.
